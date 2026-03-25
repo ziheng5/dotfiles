@@ -3,6 +3,7 @@
 # 2025/11/21    Coldrain
 
 # 0. Export Important Variables && Shell Configurations
+export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt/plugins
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export XDG_CONFIG_HOME="$HOME/.config"
