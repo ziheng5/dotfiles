@@ -2,8 +2,13 @@
 # This configuration file is only used for user lengyu.
 # 2025/11/21    Coldrain
 
+
+
+# set the function path to include custom functions
+fpath=(~/.zshrc.d/functions $fpath)
+
+
 # 0. Export Important Variables && Shell Configurations
-export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt/plugins
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -20,14 +25,15 @@ bindkey '^[[1;5C' forward-word  # Ctrl+Right
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/autojump/autojump.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source /opt/miniconda3/etc/profile.d/conda.sh
 
 # 2. General alias
 # alias ls='ls --color=auto'
 alias ls='eza --icons=always'
 alias ll='eza -l --icons=always'
-alias conda_env="source /opt/anaconda/bin/activate"
-alias system_agent="export ALL_PROXY=http://127.0.0.1:20168"
+# alias conda_env="source /opt/anaconda/bin/activate"
+alias v2raya_agent="export ALL_PROXY=http://127.0.0.1:20168"
+alias mihomo_agent="export ALL_PROXY=http://127.0.0.1:7890"
 ## icat image.png/.jpg/... --> show the image
 alias icat="kitty +kitten icat"
 alias my_blog="cd /home/lengyu/linux_project_dir/blog_dir/HexoBlog/ziheng5.github.io"
@@ -93,3 +99,12 @@ eval "$(starship init zsh)"
 QS_SEQ="$HOME/.local/state/quickshell/user/generated/terminal/sequences.txt"
 [ -r "$QS_SEQ" ] && command cat -- "$QS_SEQ"
 
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
+autoload -Uz proxy
